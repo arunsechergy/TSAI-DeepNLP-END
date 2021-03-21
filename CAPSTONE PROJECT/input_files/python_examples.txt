@@ -1,0 +1,1063 @@
+# write python function get the unique number of elements from the user given list
+
+mylist = ['nowplaying', 'PBS', 'PBS', 'nowplaying', 'job', 'debate', 'thenandnow']
+
+
+def get_unique_elements(list):
+	unique = [x for i, x in enumerate(mylist) if i == mylist.index(x)]
+	return unique
+
+
+get_unique_elements(mylist)
+
+
+# write a python function get the maximum number in passed list
+
+def max_check(x):
+	max_val = x[0]
+	for check in x:
+		if check > max_val:
+			max_val = check
+	return max_val
+
+
+print(f'{max_check([2, 4, 5, 7, 98])}')
+
+
+# write a python function to get the minimum number in passed list
+
+def min_check(x):
+	min_val = x[0]
+	for check in x:
+		if check < min_val:
+			min_val = check
+	return min_val
+
+
+print(f'{min_check([2, 4, 5, 7, 98])}')
+
+# write a program to reverse the list elements
+
+list_ = [40, 0, 1, 29, 3]
+rev_list = list_[::-1]
+print(f'reversed list: {rev_list}')
+
+# write a program to sort the list in ascending order
+data_list = [-5, -23, 5, 0, 23, -6, 23, 67]
+new_list = []
+
+while data_list:
+	minimum = data_list[0]  # arbitrary number in list
+	for x in data_list:
+		if x < minimum:
+			minimum = x
+	new_list.append(minimum)
+	data_list.remove(minimum)
+
+print(f'ascending_order_list: {new_list}')
+
+# write a program to sort the list in descending order
+data_list = [-5, -23, 5, 0, 23, -6, 23, 67]
+new_list = []
+
+while data_list:
+	minimum = data_list[0]
+	for x in data_list:
+		if x > minimum:
+			minimum = x
+	new_list.append(minimum)
+	data_list.remove(minimum)
+
+print(f'descending_order_list: {new_list}')
+
+
+# write a python function to sort a list of tuples by the second Item
+
+def sort_tuple(tup):
+	lst = len(tup)
+	for i in range(0, lst):
+
+		for j in range(0, lst - i - 1):
+			if (tup[j][1] > tup[j + 1][1]):
+				temp = tup[j]
+				tup[j] = tup[j + 1]
+				tup[j + 1] = temp
+	return tup
+
+
+tup = [('for', 24), ('is', 10), ('to', 28),
+	   ('goal', 1), ('portal', 20), ('a', 15)]
+
+sort_tuple(tup)
+
+# write a program to insert element in the list after every nth element
+
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+i = 3
+while i < len(letters):
+	letters.insert(i, 'x')
+	i += 4
+
+letters
+
+# write a program to find sum of elements in list
+
+total = 0
+print(f'sum: {sum([total + x for x in [1, 2, 3, 4, 5]])}')
+
+# write a  program to get the matched elements from two list
+a = [1, 2, 3, 4, 5]
+b = [9, 8, 7, 6, 5]
+[i for i, j in zip(a, b) if i == j]
+
+# write a  program to get the matched elements from two list
+a = [1, 2, 3, 4, 5]
+b = [9, 8, 7, 6, 5]
+[i for i, j in zip(a, b) if i != j]
+
+# write a python program to create dictionary from the lists
+
+L1 = ['a', 'b', 'c', 'd']
+L2 = [1, 2, 3, 4]
+d = dict(zip(L1, L2))
+print(f'dictionary:{d}')
+
+# write a program to convert given dictionary to list of list key value pairs
+
+d = {'Food': 'Fish&Chips', '2012': 'Olympics', 'Capital': 'London'}
+list_key_value = [[k, v] for k, v in d.items()]
+print(f'list_key_value:{list_key_value}')
+
+# write program to Compare two dictionaries and check how many (key, value) pairs are equal
+x = {"a": 2, "b": 2, "c": 3, "d": 4}
+y = {"b": 2, "c": 3, "d": 4}
+shared_items = {k: x[k] for k in x if k in y and x[k] == y[k]}
+length = len(shared_items)
+print(f'count:{length}')
+
+# write a python function get the random number from the given range and square the number
+import random
+
+min_value = 10
+max_value = 20
+
+
+def square(x):
+	return x * x
+
+
+def get_square_of_random_number(min_value, max_value):
+	return square(random.randint(min_value, max_value))
+
+
+get_square_of_random_number(min_value, max_value)
+
+
+# write a python function to identify the total counts of chars, digits,and symbols for given input string
+
+def findDigitsCharsSymbols(inputString):
+	charCount = 0
+	digitCount = 0
+	symbolCount = 0
+	for char in inputString:
+		if char.islower() or char.isupper():
+			charCount += 1
+		elif char.isnumeric():
+			digitCount += 1
+		else:
+			symbolCount += 1
+
+	print("Chars = ", charCount, "Digits = ", digitCount, "Symbol = ", symbolCount)
+
+
+inputString = "P@#yn26at^&i5ve"
+print("total counts of chars, digits,and symbols \n")
+
+findDigitsCharsSymbols(inputString)
+
+
+#  write a python function to find all occurrences of user given substring in user provided input string ignoring the case
+
+def count_word_occurrences(inputstring, substring):
+	inputstring = inputstring
+	tempString = inputString.lower()
+	count = tempString.count(substring.lower())
+	return print(f'Given substring count is :{count}')
+
+
+inputString = "Welcome to USA. usa awesome, isn't it?"
+substring = "USA"
+count_word_occurrences(inputString, substring)
+
+# write a program that prints the sum and average of the digits that appear in the string, ignoring all other characters
+import re
+
+inputStr = "English = 78 Science = 83 Math = 68 History = 65"
+markList = [int(num) for num in re.findall(r'\b\d+\b', inputStr)]
+totalMarks = 0
+for mark in markList:
+	totalMarks += mark
+
+percentage = totalMarks / len(markList)
+print(f'Total Marks is:{totalMarks},Percentage is:{percentage}')
+
+
+# write a python function to create a new string by appending second string in the middle of first string
+
+def appendMiddle(s1, s2):
+	middleIndex = int(len(s1) / 2)
+	print("Original Strings are", s1, s2)
+	middleThree = s1[:middleIndex:] + s2 + s1[middleIndex:]
+	print("After appending new string in middle", middleThree)
+
+
+appendMiddle("bananna", "monkey")
+
+# write a program to find the last position of a given substring in a given string
+str1 = "Emma is a data scientist who knows Python. Emma works at google."
+print(f"Original String is: {str1}")
+
+index = str1.rfind("Emma")
+print(f"Last occurrence of Emma starts at {index}")
+
+# write a program to remove the empty list from the given list
+str_list = ["Emma", "Jon", "", "Kelly", None, "Eric", ""]
+new_str_list = list(filter(None, str_list))
+print(new_str_list)
+
+# write a program from given string replace each punctuation with !
+
+from string import punctuation
+
+str1 = '/*Jon is @developer & musician!!'
+print(f"The original string is :{str1}")
+replace_char = '!'
+for char in punctuation:
+	str1 = str1.replace(char, replace_char)
+
+print(f"The strings after replacement : {str1}")
+
+# write a program to convert all the sentences present in the list to upper
+
+mylis = ['this is test', 'another test']
+print(f'{[item.upper() for item in mylis]}')
+
+# write a program to adds every 3rd number in a list
+from functools import reduce
+
+input_list = [x for x in range(10)]
+reduce((lambda x, y: x + y), [val for idx, val in enumerate(input_list) if (idx + 1) % 3 == 0])
+
+# write a program to strips every vowel from a string provided
+
+vowels = ('a', 'e', 'i', 'o', 'u')
+input_string = "awesome"
+' '.join([x for x in input_string.lower() if x not in vowels])
+
+
+# write a python class that defines a Tree and add child
+
+class TreeNode:
+	def __init__(self, data):
+		self.data = data
+		self.parent = None
+		self.children = []
+
+	def add_child(self, child):
+		child.parent = self
+		self.children.append(child)
+
+
+t = TreeNode("Arun")
+t.add_child(TreeNode("Shruthi"))
+
+# write a python function that takes two path strings and return the combined path string
+import os
+
+
+def path_join(PARENT_DIR, DIR):
+	joined_path = os.path.join(PARENT_DIR, DIR)
+	return joined_path
+
+
+path_join("C:/", "DATA")
+
+
+# write a python function to read a text file and return the result
+def read_file(filepath='test.txt'):
+	with open(filepath, 'r') as file_reader:
+		f_read = file_reader.read()
+	return f_read
+
+
+read_file()
+
+
+# write a python function to read a text file, if no filepath is given raise Exception
+def read_file(filepath=None):
+	if filepath:
+		with open(filepath, 'r') as file_reader:
+			f_read = file_reader.read()
+		return f_read
+	else:
+		raise Exception("filepath not found")
+
+
+read_file()
+
+
+# write a python program to handle exception when a given value is less than 10
+
+def check(x):
+	if x < 10:
+		raise ValueError('x should not be less than 10!')
+	else:
+		return x
+
+
+check(9)
+
+
+# write a python function to check if the given structure is a instance of list or dictionary
+def check_insst(obj):
+	if isinstance(obj, list):
+		return "list"
+	elif isinstance(obj, dict):
+		return "dict"
+	else:
+		return "unknown"
+
+
+check_insst({})
+
+
+# write a python function to check if the given structure is a instance of tuple or string
+def check_inst_tup_str(obj):
+	if isinstance(obj, set):
+		return "set"
+	elif isinstance(obj, tuple):
+		return "tuple"
+	else:
+		return "unknown"
+
+
+check_inst_tup_str({1})
+
+
+# write a python class to instantiate an object with two string attributes and write a function to return the list of attributes
+class Myclass:
+	def __init__(self, attr1, attr2):
+		self.attr1 = attr1
+		self.attr2 = attr2
+
+	def get_attributes_list(self):
+		return [self.attr1, self.attr2]
+
+
+dress = Myclass("pant", "shirt")
+dress.get_attributes_list()
+
+
+# write a python function that call another function and that function prints "Inside B"
+def A():
+	B()
+
+
+def B():
+	print("Inside B")
+
+
+A()
+
+# write a python program to return the biggest character in a string (printable ascii characters)
+from functools import reduce
+
+input_str = 'tsai'
+res = reduce(lambda x, y: x if ord(x) > ord(y) else y, input_str)
+print(f"{res}")
+
+# write a python program to adds every 3rd number in a list
+from functools import reduce
+
+input_list = [x for x in range(10)]
+res = reduce(lambda x, y: x + y, [i for idx, i in enumerate(input_list) if (idx + 1) % 3 == 0])
+
+print(f"{res}")
+
+# write a python program which iterates two lists of numbers simultaneously and adds corresponding values, print the result
+f_list = [1, 2, 3, 4]
+s_list = [2, 3, 4, 5]
+res = [f_n + s_n for f_n, s_n in zip(f_list, s_list)]
+print(f"{res}")
+
+
+# write a python function that takes a list of numbers and calculate square of each number and return it in a list
+def square_num(mynumbers):
+	return list(map(lambda num: num ** 2, mynumbers))
+
+
+square_num([1, 2, 3])
+
+
+# write a python function that takes two lists and combines them without any duplicates and return the list
+def combine_lists(L1, L2):
+	return L1 + [items for items in L2 if items not in L1]
+
+
+L1 = [1, 2, 3]
+L2 = [2, 4, 3]
+
+combine_lists(L1, L2)
+
+
+# write a python function that removes all the vowels from the given list of strings and return the list
+def myfunc(listitems):
+	final = []
+	for strchar in listitems:
+		for letters in strchar:
+			if letters in ('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'):
+				strchar = strchar.replace(letters, "")
+		final.append(strchar)
+	return final
+
+
+myfunc(["rohan", "END"])
+
+# write a python program to print all the keys in the dictionary and store it in a list
+sample_dict = {'1': 1, '2': 2, '3': 3}
+key_list = list(sample_dict.keys())
+print(f"{key_list}")
+
+# write a python program to remove duplicates from a list and print the result in list
+input_list = [1, 2, 3, 4, 4, 33, 2, 5]
+dedup = list(set(input_list))
+print(f"{dedup}")
+
+
+def nchar(list1, no):
+	return [items[:no] + items[-no:] for items in list1]
+
+
+list1 = ["ROHAN", "END"]
+nchar(list1, 3)
+
+
+# write a python function that takes two parameters, first parameter is a list of dictionary and second is a list of tuples. Append the list of tuples to the list of dictionary
+def addentry(listname, addlist):
+	for names, ages in addlist:
+		listname.append(addlist)
+	return listname
+
+
+addentry([{'1': "A"}], [("2", "B")])
+
+
+# write a python function that takes a dictionary and a string, appends the string to the list of values
+def addnames_in_dict(dictname, name):
+	for i in dictname:
+		dictname[i].append(name)
+	return dictname
+
+
+addnames_in_dict({"1": ["A"]}, "Arun")
+
+# write a python program to iterate through the list and create a dictionary with integers as keys
+list_ = [1, 2, 3, 4]
+dict_comp = {idx: value for idx, value in enumerate(list_)}
+print(f"{dict_comp}")
+
+
+# write a python function to add all even numbers between minimum and maximum value
+def add_even_num(min, max):
+	return sum([i for i in range(min, max) if i % 2 == 0])
+
+
+add_even_num(1, 6)
+
+# write a python program to iterate through a string using for loop
+h_letters = []
+
+for letter in 'human':
+	h_letters.append(letter)
+
+print(f"{h_letters}")
+
+# write a python program to iterate through a string using lambda and print the result
+letters = list(map(lambda x: x, 'human'))
+print(letters)
+
+# write a python function to calculate the price after tax for a list of transactions
+txns = [1.09, 23.56, 57.84, 4.56, 6.78]
+TAX_RATE = .08
+
+
+def get_price_with_tax(txn):
+	return txn * (1 + TAX_RATE)
+
+
+final_prices = list(map(get_price_with_tax, txns))
+print(f"{final_prices}")
+
+# write a python program to print python version using sys
+import sys
+
+print(f"{sys.version}")
+
+# write a python program to merge two sorted lists
+a = [3, 4, 6, 10, 11, 18]
+b = [1, 5, 7, 12, 13, 19, 21]
+
+a.extend(b)
+c = sorted(a)
+print(f"{c}")
+
+# write a python program to index every 4th character from the below string
+code = 'varCjjlopaxntrrgnbXrOPraiiItUuUuzaQlliyaxx*t#rgiffFoce&ntPls87C!'
+code[3::4]
+
+# write a python program to split a string based on space
+strin = "Hello how are you ?"
+res = strin.split()
+print(f"{res}")
+
+# write a python program to convert a dictionary to list of tuples
+dict_new = {'1': 'A', '2': 'B'}
+tup = dict_new.items()
+print(list(tup))
+
+# write a python program to remove an element from a list
+li = [1, 2, 3, 4]
+li.remove(1)
+li
+
+# write a python program to print system time
+import time
+
+print(f"{time.time()}")
+
+
+# write a python function to inherit a parent class person in a child class Student
+class Person:
+	def __init__(self, fname, lname):
+		self.firstname = fname
+		self.lastname = lname
+
+	def printname(self):
+		print(self.firstname, self.lastname)
+
+
+class Student(Person):
+	pass
+
+
+# write a python program to replace all the negative values to zero and keep only positive values in the list
+original_prices = [1.25, -9.45, 10.22, 3.78, -5.92, 1.16]
+prices = [i if i > 0 else 0 for i in original_prices]
+print(f"{prices}")
+
+# write a python function to generate random number between a  given range
+import random
+
+
+def get_weather_data(min, max):
+	return random.randrange(min, max)
+
+
+rand_num = get_weather_data(11, 20)
+print(f"{rand_num}")
+
+# write a python function which uses generator to sum all the numbers in a range
+min_value = 10
+max_value = 10000
+sum_all = sum(i * i for i in range(min_value, max_value))
+print(f"{sum_all}")
+
+# write a python program to transpose Matrix using Nested Loops and print the result
+transposed = []
+matrix = [[1, 2, 3, 4], [4, 5, 6, 8]]
+
+for i in range(len(matrix[0])):
+	transposed_row = []
+
+	for row in matrix:
+		transposed_row.append(row[i])
+	transposed.append(transposed_row)
+
+print(f"{transposed}")
+
+# write a python function to create two threads and start and join the two threads
+import threading
+
+
+def print_cube(num):
+	print("Cube: {}".format(num * num * num))
+
+
+t1 = threading.Thread(target=print_cube, args=(10,))
+t2 = threading.Thread(target=print_cube, args=(10,))
+
+t1.start()
+
+t2.start()
+
+t1.join()
+t2.join()
+
+
+# write a python function which is decorated on another function
+def myDecorator(func):
+	def new_func(n):
+		return '$' + func(n)
+
+	return new_func
+
+
+@myDecorator
+def myFunction(a):
+	return (a)
+
+
+print(myFunction('100'))
+
+
+# write a python function to convert given variable to said datatype
+
+def type_conversion(typ, a):
+	if (typ) == 'int':
+		return (int(a))
+	elif (typ) == 'float':
+		return (float(a))
+	else:
+		return (str(a))
+
+
+type_conversion('str', 1)
+
+
+# Write a python class to welcome
+
+class Welcome(object):
+
+	# Constructor
+	def __init__(self, name):
+		self.name = name  # Create an instance variable
+
+	# Instance method
+	def welcome(self, up=False):
+		if up:
+			print('Hi, %s!' % self.name.upper())
+		else:
+			print('Hey, %s' % self.name)
+
+
+w = Welcome('Geeta')
+w.welcome(up=True)
+
+# Write a program to reverse dictionary key order
+
+sample_dict = {1: 'Hi', 2: 'Hello', 3: 'Hey'}
+
+print("The original dictionary : " + str(sample_dict))
+
+res = dict(reversed(list(sample_dict.items())))
+
+print("The reversed order dictionary : " + str(res))
+
+# Write a program to reverse the key and item mapping
+
+sample_dict = {1: 'Seeta', 2: 'Geeta', 3: 'Babita'}
+
+print("The original dictionary : " + str(sample_dict))
+
+sample_dict = {v: k for k, v in sample_dict.items()}
+
+print("Inverse mapped dictionary : ", str(sample_dict))
+
+# Write a program to generate the Fibonacci sequence up to n-th term
+
+nterms = int(10000)
+
+# first two terms
+n1, n2 = 0, 1
+count = 0
+fab_list = []
+# check if the number of terms is valid
+if nterms <= 0:
+	print("Please enter a positive integer")
+elif nterms == 1:
+	print("Fibonacci sequence upto", nterms, ":")
+	print(n1)
+else:
+	while count < nterms:
+		# print(n1)
+		fab_list.append(n1)
+		nth = n1 + n2
+		# update values
+		n1 = n2
+		n2 = nth
+		count += 1
+
+fn = lambda x: "FIBONACCI" if x in fab_list else "NOT_FIBONACCI"
+
+print("Given number is", fn(20))
+
+# Write a python function to add 2 iterables a and b such that a is even and b is odd
+
+n = 10
+a = []
+b = []
+_ = [a.append(i) if i % 2 == 0 else b.append(i) for i in range(n)]
+
+
+def add(a, b):
+	return [a + b for a, b in (zip(a, b))]
+
+
+add(a, b)
+
+# Write a program to strips every vowel from a string provided
+
+vowels = ('a', 'e', 'i', 'o', 'u')
+input_string = "hello"
+
+print('Vowel in a string', ' '.join([x for x in input_string.lower() if x not in vowels]))
+
+
+# Write a python function that takes a small character string and shifts all characters by 5
+
+def shift_n_letters(letter, n):
+	return chr((ord(letter) - 97 + n % 26) % 26 + 97) if ord(letter) >= 97 else chr(
+		(ord(letter) - 65 + n % 26) % 26 + 65)
+
+
+name = "hello"
+
+res = "".join([shift_n_letters(x, 5) for x in name])
+
+print('Resulting string', res)
+
+# Write a python function to  add only even numbers in a list
+
+from functools import reduce
+
+input_list = [x for x in range(100)]
+
+
+def sum_even(it):
+	return reduce(lambda x, y: x + y if (y % 2) == 0 else x, it, 0)
+
+
+res = sum_even(input_list)
+
+print('Sum of even numbers in the list is ', res)
+
+# write a program to  adds every 5th number in a list
+input_list = [x for x in range(20)]
+
+res = reduce((lambda x, y: x + y), [val for idx, val in enumerate(input_list) if (idx + 1) % 5 == 0])
+print('Sum of every 5th element in the list is', res)
+
+
+# Write a python function to identify type of given data structure
+
+def ds_type(ds):
+	return (type(ds))
+
+
+l = [1, 2, 3, 4]
+ds_type(l)
+
+
+# Write a python function to remove duplicates from list
+
+def remove_duplicates(lista):
+	lista2 = []
+	if lista:
+		for item in lista:
+			if item not in lista2:  # is item in lista2 already?
+				lista2.append(item)
+	else:
+		return lista
+	return lista2
+
+
+print("List with duplicates removed:", remove_duplicates([1, 2, 3, 3]))
+
+
+#  Write a python function get unique value from tuple
+
+def unique_values(v):
+	return (list(set(v)))
+
+
+t = [(1, 2), (3, 4), (4, 3), (1, 2)]
+
+unique_values(t)
+
+#  write a program to convert temperature from Celsius to Fahrenheit
+
+Cel = 90
+
+Far = 9.0 / 5.0 * Cel + 32
+
+print("Temperature:", Cel, "Celsius = ", Far, " F")
+
+# Write a program to convert kilometers per hour to mile per hour
+
+kmh = 16
+mph = 0.6214 * kmh
+print("Speed:", kmh, "KM/H = ", mph, "MPH")
+
+
+# Write a python function to find greatest common divisor
+
+def greatest_common_divisor(x, y):
+	print("For", x, "and", y, ",")
+	r = x % y
+	while r > 0:
+		r = x % y
+		if r == 0:
+			print("the greatest common divisor is", y, ".")
+		else:
+			q = y
+			x = q
+			y = r
+
+
+greatest_common_divisor(1071, 1029)
+
+#  Write a program to check your external ip address
+
+import re
+import requests
+
+url = "http://checkip.dyndns.org"
+request = requests.get(url)
+clean = request.text.split(': ', 1)[1]
+your_ip = clean.split('</body></html>', 1)[0]
+
+print("your IP Address is: ", your_ip)
+
+#  Write a python function to generate a random password
+
+import random
+
+LOWERCASE_CHARS = tuple(map(chr, range(ord('a'), ord('z') + 1)))
+UPPERCASE_CHARS = tuple(map(chr, range(ord('A'), ord('Z') + 1)))
+DIGITS = tuple(map(str, range(0, 10)))
+SPECIALS = ('!', '@', '#', '$', '%', '^', '&', '*')
+
+SEQUENCE = (LOWERCASE_CHARS,
+			UPPERCASE_CHARS,
+			DIGITS,
+			SPECIALS,
+			)
+
+
+def generate_random_password(total, sequences):
+	r = _generate_random_number_for_each_sequence(total, len(sequences))
+
+	password = []
+	for (population, k) in zip(sequences, r):
+		n = 0
+		while n < k:
+			position = random.randint(0, len(population) - 1)
+			password += population[position]
+			n += 1
+	random.shuffle(password)
+
+	while _is_repeating(password):
+		random.shuffle(password)
+
+	return ''.join(password)
+
+
+def _generate_random_number_for_each_sequence(total, sequence_number):
+	""" Generate random sequence with numbers (greater than 0).
+		The number of items equals to 'sequence_number' and
+		the total number of items equals to 'total'
+	"""
+	current_total = 0
+	r = []
+	for n in range(sequence_number - 1, 0, -1):
+		current = random.randint(1, total - current_total - n)
+		current_total += current
+		r.append(current)
+	r.append(total - sum(r))
+	random.shuffle(r)
+
+	return r
+
+
+def _is_repeating(password):
+	""" Check if there is any 2 characters repeating consecutively """
+	n = 1
+	while n < len(password):
+		if password[n] == password[n - 1]:
+			return True
+		n += 1
+	return False
+
+
+if __name__ == '__main__':
+	print(generate_random_password(random.randint(6, 30), SEQUENCE))
+
+# Write a python function to get a user name from prompt
+
+username = input("Login: >> ")
+
+user1 = "Ram"
+user2 = "Mohan"
+
+if username == user1:
+	print("Access granted")
+elif username == user2:
+	print("Welcome to the system")
+else:
+	print("Access denied")
+
+
+# Write a python function to convert hours to either mins or seconds
+
+def convert_to_minutes(num_hours):
+	'''(int) -> int
+	Return the number of minutes there are in
+	num_hours hours.
+	'''
+	minutes = num_hours * 60
+	return minutes
+
+
+def convert_to_seconds(num_hours):
+	'''(int) -> int
+	Return the number of seconds there are in
+	num_hours hours.
+	'''
+	minutes = convert_to_minutes(num_hours)
+	seconds = minutes * 60
+	return seconds
+
+
+min = convert_to_minutes(1)
+print(min)
+
+seconds = convert_to_seconds(1)
+print(seconds)
+
+# Write python function role a dice
+
+import random
+
+min = 1
+max = 6
+
+roll_again = "yes"
+
+while roll_again == "yes" or roll_again == "y":
+	print("Rolling the dices...")
+	print("The values are....")
+	print(random.randint(min, max))
+	print(random.randint(min, max))
+
+	roll_again = input("Roll the dices again?")
+
+# Write a program to reverse a number
+
+n = int(input("Enter number: "))
+rev = 0
+while (n > 0):
+	dig = n % 10
+	rev = rev * 10 + dig
+	n = n // 10
+print("Reverse of the number:", rev)
+
+# Write a program to take an average of given scores
+s1 = 50
+s2 = 77
+s3 = 87
+
+print('Avg score is', (s1 + s2 + s3) / 3)
+
+# Write a python program to print odd numbers in given range
+lower = int(input("Enter the lower limit for the range:"))
+upper = int(input("Enter the upper limit for the range:"))
+for i in range(lower, upper + 1):
+	if (i % 2 != 0):
+		print(i)
+
+# Write a python program print all the integers that aren’t divisible by either 2 or 3 and lies between 1 and 25.
+for i in range(0, 25):
+	if (i % 2 != 0 and i % 3 != 0):
+		print(i)
+
+# Write a program to concatinate two strings
+
+str1 = 'Good'
+str2 = 'Morning!'
+
+print('str1 + str2 = ', str1 + str2)
+
+print('str1 * 3 =', str1 * 3)
+
+
+# Write python function to convert a given string to either lower, upper and capitalize
+
+def string_opertaion(st, conversion):
+	if (conversion == 'lower'):
+		return (st.lower())
+	elif (conversion == 'upper'):
+		return (st.upper())
+	else:
+		return (st.capitalize())
+
+
+string_opertaion('AwesOME', None)
+
+# Write a program to get 3rd and last character of a given string
+
+string = "Good Night"
+print("\nSlicing characters between " +
+	  "3rd and last character: ")
+print(string[3:-1])
+
+# Write a program to delete a 3rd character from a given string
+
+String = 'welcome'
+
+new_str = ""
+
+for i in range(len(String)):
+	if i != 2:
+		new_str = new_str + String[i]
+
+print(new_str)
+
+# Write a program to replace a string by a given string #in a sentence
+
+string = 'This is beautiful picture'
+
+string.replace('beautiful', 'good')
+
+# Write a program to reverse a string
+
+string = 'Today is bad day'
+string[::-1]
+
+
+# Write a python function to append or extend two lists
+
+
+def list_op(l1, l2, op):
+	if (op == 'append'):
+		return (l1.append(l2))
+	else:
+		return (l1.extend(l2))
+
+
+a = ['Hey', 'you', 'there!']
+b = [1, 2, 3]
+op = 'e'
+
+list_op(a, b, op)
+
+print(a)
